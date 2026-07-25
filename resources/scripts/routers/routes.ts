@@ -28,6 +28,7 @@ import {
     faPassport,
     faPlayCircle,
     faPuzzlePiece,
+    faServer,
     faTerminal,
     faUser,
     faUsers,
@@ -38,6 +39,7 @@ const ScheduleEditContainer = lazy(() => import('@/components/server/schedules/S
 const PlayersContainer = lazy(() => import('@/components/server/players/PlayersContainer'));
 const WorldManagerContainer = lazy(() => import('@/components/server/world/WorldManagerContainer'));
 const ModPluginManagerContainer = lazy(() => import('@/components/server/mods/ModPluginManagerContainer'));
+const SoftwareContainer = lazy(() => import('@/components/server/software/SoftwareContainer'));
 
 interface RouteDefinition {
     path: string;
@@ -187,6 +189,14 @@ export default {
             name: 'Startup',
             component: StartupContainer,
             iconProp: faPlayCircle,
+            section: 'Management',
+        },
+        {
+            path: '/software',
+            permission: 'startup.*',
+            name: 'Software',
+            component: SoftwareContainer,
+            iconProp: faServer,
             section: 'Management',
         },
         {

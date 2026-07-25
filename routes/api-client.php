@@ -139,4 +139,10 @@ Route::group([
         Route::post('/reinstall', [Client\Servers\SettingsController::class, 'reinstall']);
         Route::put('/docker-image', [Client\Servers\SettingsController::class, 'dockerImage']);
     });
+
+    Route::group(['prefix' => '/software'], function () {
+        Route::get('/', [Client\Servers\SoftwareController::class, 'index']);
+        Route::get('/{software}/versions', [Client\Servers\SoftwareController::class, 'versions']);
+        Route::post('/', [Client\Servers\SoftwareController::class, 'update']);
+    });
 });
