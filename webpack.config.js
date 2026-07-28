@@ -102,10 +102,11 @@ module.exports = {
         }),
         new AssetsManifestPlugin({ writeToDisk: true, publicPath: true, integrity: true, integrityHashes: ['sha384'] }),
         new ForkTsCheckerWebpackPlugin({
+            async: true,
             typescript: {
                 mode: 'write-references',
                 diagnosticOptions: {
-                    semantic: true,
+                    semantic: false,
                     syntactic: true,
                 },
             },
